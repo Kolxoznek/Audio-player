@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio player</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="player">
+        <div class="player__top"></div>
+        <div class="player__range">
+            <input type="range" name="time" min="0" max="11">
+        </div>
+        <div class="player__bottom">
+            <div class="player__controls">
+                <button class="player__prev">
+                    <img src="assets/svg/backward.png" alt="control prev">
+                </button>
+                <button class="player__play">
+                    <img src="assets/svg/play.png" alt="control play">
+                    <img src="assets/svg/pause.png" alt="control pause">
+                </button>
+                <button class="player__next">
+                    <img src="assets/svg/forward.png" alt="control next">
+                </button>
+            </div>
+            <div class="player__volume">
+                <div class="player__volume-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <input type="range" name="volume">
+            </div>
+            <div class="player__info">
+                <h2 class="player__title">Beyonce</h2>
+                <h3 class="player__subtitle">Don`t Hurt Youself</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
