@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <audio></audio>
     <div class="player">
         <div class="player__top"></div>
         <div class="player__range">
-            <input type="range" name="time" min="0" max="11">
+            <input type="range" id="time" name="time">
         </div>
         <div class="player__bottom">
             <div class="player__controls">
                 <button class="player__prev">
                     <img src="assets/svg/backward.png" alt="control prev">
                 </button>
-                <button class="player__play">
-                    <img src="assets/svg/play.png" alt="control play">
+                <button class="player__play player_pause">
                     <img src="assets/svg/pause.png" alt="control pause">
+                    <img src="assets/svg/play.png" alt="control play">
                 </button>
                 <button class="player__next">
                     <img src="assets/svg/forward.png" alt="control next">
@@ -31,11 +32,11 @@
                     <span></span>
                     <span></span>
                 </div>
-                <input type="range" name="volume">
+                <input type="range" name="volume" id="volume" min="0" max="100">
             </div>
             <div class="player__info">
-                <h2 class="player__title">Beyonce</h2>
-                <h3 class="player__subtitle">Don`t Hurt Youself</h3>
+                <h2 class="player__title"></h2>
+                <h3 class="player__subtitle"></h3>
             </div>
         </div>
     </div>

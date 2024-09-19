@@ -10,24 +10,30 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: center center / cover no-repeat url('/assets/img/lemonade.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
     backdrop-filter: blur(10px)
 }
+
 .player {
     width: 400px;
     border-radius: 10px;
     overflow: hidden;
     background-color: #1b1b1b;
+    box-shadow: 0 0 35px 14px rgba(13, 13, 13, 0.5);
 }
 .player__top {
     height: 400px;
     font-size: 0;
-    background: center center / cover no-repeat url('/assets/img/lemonade.png');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .player__range {
     margin-top: -8px;
-    padding: 0 2px;
+    padding: 0;
     overflow: hidden;
     input {
         width: 100%;
@@ -78,6 +84,7 @@ body {
 }
 .player_pause {
     img {
+        pointer-events: none;
         &:first-child {
             z-index: -1;
             opacity: 0;
@@ -122,93 +129,25 @@ body {
     }
 }
 
-input[type=range] {
-    height: 10px;
-    -webkit-appearance: none;
-    margin: 10px 0;
+input[type="range"] {
+    width: 100%; /* Задаем ширину */
+}
+
+/* Стили для полосы прогресса */
+input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
-  }
-  input[type=range]:focus {
-    outline: none;
-  }
-  input[type=range]::-webkit-slider-thumb {
-    box-shadow: none;
-    border: 1px solid #3bde00;
-    height: 14px;
-    width: 10px;
-    border-radius: 4px;
-    background: #72d10d;
+    height: 8px;
+    background: #ddd; /* Цвет фона всей дорожки */
+    border-radius: 0;
     cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -2px;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 10px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: none;
-    background: #ffffff;
-    border-radius: 0px;
-    border: 0px solid #ffffff;
-  }
-  
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ffffff;
-  }
-  input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 10px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: none;
-    background: #ffffff;
-    border-radius: 0px;
-    border: 0px solid #ffffff;
-  }
-  input[type=range]::-moz-range-thumb {
-    box-shadow: none;
-    border: 1px solid #3bde00;
-    height: 14px;
-    width: 10px;
-    border-radius: 4px;
-    background: #72d10d;
-    cursor: pointer;
-  }
-  input[type=range]::-ms-track {
-    width: 100%;
-    height: 10px;
-    cursor: pointer;
-    animate: 0.2s;
-    background: #000;
-    border-color: #000;
-    color: #000;
-  }
-  input[type=range]::-ms-fill-lower {
-    background: #0c0b0b;
-    border: 0px solid #ffffff;
-    border-radius: 4px;
-    box-shadow: none;
-  }
-  input[type=range]::-ms-fill-upper {
-    background: #242121;
-    border: 0px solid #ffffff;
-    border-radius: 4px;
-    box-shadow: none;
-  }
-  input[type=range]::-ms-thumb {
-    margin-top: 1px;
-    box-shadow: none;
-    border: 1px solid #3bde00;
-    height: 14px;
-    width: 10px;
-    border-radius: 4px;
-    background: #72d10d;
-    cursor: pointer;
-  }
-  input[type=range]:focus::-ms-fill-lower {
-    background: #292525;
-  }
-  input[type=range]:focus::-ms-fill-upper {
-    background: #ffffff;
-  }
+}
+
+/* Стили для закрашенной части */
+input[type="range"]::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, #72d10d 0%, #4caf50 var(--value), #ddd var(--value), #ddd 100%);
+}
+
+/* Стили для ползунка */
+input[type="range"]::-webkit-slider-thumb {
+    opacity: 0;
+}
