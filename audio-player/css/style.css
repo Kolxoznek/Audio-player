@@ -9,9 +9,9 @@
 body {
   width: 100vw;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto 100px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -27,6 +27,9 @@ body {
 
 .player {
   width: 400px;
+  justify-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   border-radius: 10px;
   overflow: hidden;
   background-color: #1b1b1b;
@@ -182,4 +185,37 @@ input[type=range]::-webkit-slider-runnable-track {
 /* Стили для ползунка */
 input[type=range]::-webkit-slider-thumb {
   opacity: 0;
+}
+
+.footer {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  background: rgba(255, 255, 255, 0.1);
+  height: 100px;
+  padding: 0 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  color: #fff;
+}
+
+.footer__author {
+  color: inherit;
+}
+
+.footer__link {
+  font-size: 0;
+}
+.footer__link svg {
+  width: 64px;
+  height: 64px;
+}
+
+.footer__date {
+  color: #fff;
 }

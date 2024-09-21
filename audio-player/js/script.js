@@ -82,11 +82,11 @@ function setRange(rangeInput) {
 
 rangeTime.addEventListener('input', (e) => {
     e.target.style.setProperty('--value', (e.target.value / duration) * 100 + '%');
-    audioElem.currentTime = rangeTime.value;
+    audioElem.currentTime = e.target.value;
 })
 rangeVolume.addEventListener('input', (e) => {
-    e.target.style.setProperty('--value', e.target.value + '%');
-    audioElem.volume = rangeVolume.value / 100;
+    e.target.style.setProperty('--value', `${e.target.value}%`);
+    audioElem.volume = e.target.value / 100;
 })
 
 function refreshTimeRange() {
