@@ -9,7 +9,9 @@
 <body>
     <audio id="audio"></audio>
     <div class="player">
-        <div class="player__top"></div>
+        <div class="player__top">
+            <div class="player__image"></div>
+        </div>
         <div class="player__range">
             <input type="range" id="time" name="time" value="0">
         </div>
@@ -27,7 +29,7 @@
                 </button>
             </div>
             <div class="player__volume">
-                <div class="player__volume-btn">
+                <div class="player__volume-btn" id="volume-btn">
                     <span></span>
                     <span></span>
                     <span></span>

@@ -23,6 +23,14 @@ body {
   background-repeat: no-repeat;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.scale {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .player {
@@ -40,12 +48,22 @@ body {
 .player__top {
   height: 400px;
   font-size: 0;
+  overflow: hidden;
+}
+
+.player__image {
+  width: 100%;
+  height: 100%;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .player__range {
+  position: relative;
+  z-index: 2;
   margin-top: -8px;
   padding: 0;
   overflow: hidden;
@@ -78,6 +96,7 @@ body {
 .player__prev, .player__next {
   width: 32px;
   height: 32px;
+  cursor: pointer;
 }
 .player__prev img, .player__next img {
   width: 100%;
@@ -87,6 +106,7 @@ body {
   width: 48px;
   height: 48px;
   position: relative;
+  cursor: pointer;
 }
 .player__play img {
   width: 100%;
@@ -130,6 +150,7 @@ body {
 }
 
 .player__volume {
+  height: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,28 +160,43 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -ms-flex-item-align: center;
+      align-self: center;
   gap: 10px;
 }
 
 .player__volume-btn {
+  font-size: 0;
+  width: 26px;
+  height: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   gap: 4px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 .player__volume-btn span {
-  width: 4px;
-  height: 22px;
+  width: 6px;
+  height: 66%;
   background: #fff;
 }
 .player__volume-btn span:first-child {
-  height: 12px;
+  height: 33%;
 }
 .player__volume-btn span:last-child {
-  height: 32px;
+  height: 100%;
+}
+
+.mute {
+  height: 32px !important;
+  opacity: 0.2;
 }
 
 input[type=range] {
