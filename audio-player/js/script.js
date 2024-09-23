@@ -9,6 +9,8 @@ const images = document.querySelectorAll('body, .player__image');
 const title = document.querySelector('.player__title');
 const subtitle = document.querySelector('.player__subtitle');
 const volumeIcon = document.getElementById('volume-btn');
+const endTime = document.querySelector('.player__end');
+const currentTime = document.querySelector('.player__current');
 let currentAudio = 0;
 let duration
 let refreshTime
@@ -32,6 +34,8 @@ const data = [
 audioElem.addEventListener('loadedmetadata', () => {
     duration = audioElem.duration
     setRange(rangeTime);
+    endTime.textContent = `${parseInt(duration / 60)}:${parseInt(duration % 60)}`
+    refreshCurrentTime()
 })
 
 setAudio();
@@ -85,6 +89,12 @@ function refreshTimeRange() {
         setAudio(1);
         audioElem.play();
     }
+    refreshCurrentTime()
+}
+
+// обновить текущее время трека в элементе
+function refreshCurrentTime() {
+    currentTime.textContent = `${parseInt(audioElem.currentTime / 60)}:${audioElem.currentTime % 60 < 10 ? '0' : ''}${parseInt(audioElem.currentTime % 60)}`
 }
 
 // переключение Play/pause, отдалить/приблизить обложку, вкл/выкл обновление полосы
@@ -118,6 +128,7 @@ prevNextBtns.forEach((btn, i) => {
 rangeTime.addEventListener('input', (e) => {
     e.target.style.setProperty('--value', (e.target.value / duration) * 100 + '%');
     audioElem.currentTime = e.target.value;
+    refreshCurrentTime()
 })
 
 // изменить громкость, обновить иконку, наложить на нее класс mute если громкость === 0
